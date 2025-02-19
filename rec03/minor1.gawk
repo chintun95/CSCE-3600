@@ -6,7 +6,7 @@ NR > 1 {
     count = 0
 
     for (i = 3; i <= NF; i++) {
-        if ($i == "--") {
+        if ($i == "") {
             missing = 1
             $i = "--"
         } else {
@@ -15,7 +15,7 @@ NR > 1 {
         }
     }
 
-    if (missing) {
+    if (missing == 1) {
         print $1, $2, $3, $4, $5, "=>", "F (missing scores)"
     } else {
         average = total / count
