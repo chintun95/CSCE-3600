@@ -1,0 +1,704 @@
+Script started on 2025-02-18 20:07:45-06:00 [TERM="xterm" TTY="/dev/pts/3" COLUMNS="177" LINES="59"]
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ ls –l > sedfile.txt[1P[1@-
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ sed –i "s/^-/R/g" sedfile.txt[1P[1@-
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ sed –n 1,10p sedfile.txt[1P[1@-
+total 36
+drwxr-xr-x 3 cw0710 domain^users  4096 Feb 12 09:45 CSCE-3600
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file10.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file11.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file12.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file13.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file14.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file15.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file16.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file17.txt
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ sed –i 1d sedfile.txt[1P[1@-
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ sed –i '/YOUR PATTERN/a This is a new line' sedfile.txt[1P[1@-[C[1P[1@-[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@f[1@i[1@l[1@e[1@1[1@3[1@.[1@t[1@x[1@t
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ sed –n 1,10p sedfile.txt
+sed: -e expression #1, char 1: unknown command: `�'
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ sed –n 1,10p sedfile.txt[1P[1@-
+drwxr-xr-x 3 cw0710 domain^users  4096 Feb 12 09:45 CSCE-3600
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file10.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file11.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file12.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file13.txt
+This is a new line
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file14.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file15.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file16.txt
+Rrw-r--r-- 1 cw0710 domain^users     0 Feb 18 19:54 file17.txt
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ ps –ef > gawkfile.txt[C[1P[1@-
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk 'NR <= 10' gawkfile.txt
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 Feb17 ?        00:01:46 /sbin/init splash
+root           2       0  0 Feb17 ?        00:00:00 [kthreadd]
+root           3       2  0 Feb17 ?        00:00:00 [rcu_gp]
+root           4       2  0 Feb17 ?        00:00:00 [rcu_par_gp]
+root           5       2  0 Feb17 ?        00:00:00 [slub_flushwq]
+root           6       2  0 Feb17 ?        00:00:00 [netns]
+root           8       2  0 Feb17 ?        00:00:00 [kworker/0:0H-events_highpri]
+root          10       2  0 Feb17 ?        00:00:00 [mm_percpu_wq]
+root          11       2  0 Feb17 ?        00:00:00 [rcu_tasks_rude_]
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk 'END {print NR}' gawkfile.txt
+335
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk '/YOUR USER ID/{print NR, $0}' gawkfile.txt[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@c[1@w[1@0[1@7[1@1[1@0
+274 root       65549     945  0 18:27 ?        00:00:05 sshd: cw0710 [priv]
+279 cw0710     65727       1  0 18:28 ?        00:00:05 /lib/systemd/systemd --user
+280 cw0710     65790   65727  0 18:29 ?        00:00:00 (sd-pam)
+281 cw0710     65812   65549  0 18:29 ?        00:00:03 sshd: cw0710@pts/3
+282 cw0710     65886   65812  0 18:29 pts/3    00:00:00 -bash
+323 cw0710     72563   65886  0 20:07 pts/3    00:00:00 script
+324 cw0710     72564   72563  0 20:07 pts/6    00:00:00 bash -i
+331 cw0710     72628   65727  0 20:11 ?        00:00:00 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+335 cw0710     72636   72564  0 20:11 pts/6    00:00:00 ps -ef
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk '$1 ~ /YOUR USER ID/{print NR, $0}' gawkfile.txt[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@c[1@w[1@0[1@7[1@1[1@0
+279 cw0710     65727       1  0 18:28 ?        00:00:05 /lib/systemd/systemd --user
+280 cw0710     65790   65727  0 18:29 ?        00:00:00 (sd-pam)
+281 cw0710     65812   65549  0 18:29 ?        00:00:03 sshd: cw0710@pts/3
+282 cw0710     65886   65812  0 18:29 pts/3    00:00:00 -bash
+323 cw0710     72563   65886  0 20:07 pts/3    00:00:00 script
+324 cw0710     72564   72563  0 20:07 pts/6    00:00:00 bash -i
+331 cw0710     72628   65727  0 20:11 ?        00:00:00 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+335 cw0710     72636   72564  0 20:11 pts/6    00:00:00 ps -ef
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk 'NF > 8 {print NR, NF}' gawkfile.txt
+2 9
+171 10
+176 10
+177 9
+178 14
+179 9
+180 9
+181 10
+182 9
+183 10
+189 12
+190 10
+192 10
+193 9
+194 9
+196 9
+197 9
+198 9
+199 9
+200 9
+203 10
+204 13
+205 14
+206 12
+207 12
+208 11
+210 9
+212 9
+213 9
+214 9
+215 9
+217 15
+219 12
+220 23
+223 9
+224 9
+240 12
+242 9
+247 9
+249 9
+251 18
+252 18
+254 10
+255 12
+256 10
+257 9
+259 13
+260 10
+262 10
+263 9
+265 9
+267 10
+268 9
+270 9
+272 10
+273 9
+274 10
+275 9
+277 9
+279 9
+281 9
+283 10
+284 9
+286 9
+288 9
+289 10
+290 9
+292 10
+293 9
+295 9
+298 10
+299 9
+301 9
+303 9
+305 10
+306 9
+308 10
+309 9
+311 10
+312 9
+315 9
+318 10
+319 9
+324 9
+325 10
+326 10
+327 10
+328 10
+329 10
+330 10
+331 10
+332 10
+333 10
+334 10
+335 9
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk 'NF > 8 {for(i = 9; i <= NF; i++) print NR, NF,
+> $i}' gawkfile.txt
+2 9 splash
+171 10 -f
+171 10 -w
+176 10 running
+176 10 [cell01-cse.local]
+177 9 -f
+178 14 --system
+178 14 --address=systemd:
+178 14 --nofork
+178 14 --nopidfile
+178 14 --systemd-activation
+178 14 --syslog-only
+179 9 --no-daemon
+180 9 --foreground
+181 10 /usr/bin/networkd-dispatcher
+181 10 --run-startup-triggers
+182 9 --no-debug
+183 10 -n
+183 10 -iNONE
+189 12 -u
+189 12 -s
+189 12 -O
+189 12 /run/wpa_supplicant
+190 10 chroot
+190 10 helper
+192 10 /usr/share/unattended-upgrades/unattended-upgrade-shutdown
+192 10 --wait-for-signal
+193 9 --start-as-daemon
+194 9 lwreg
+196 9 [pam/gdm-launch-environment]
+197 9 eventlog
+198 9 -f
+199 9 netlogon
+200 9 --user
+203 10 --daemonize=no
+203 10 --log-target=journal
+204 13 dbus-run-session
+204 13 --
+204 13 gnome-session
+204 13 --autostart
+204 13 /usr/share/gdm/greeter/autostart
+205 14 --session
+205 14 --address=systemd:
+205 14 --nofork
+205 14 --nopidfile
+205 14 --systemd-activation
+205 14 --syslog-only
+206 12 --
+206 12 gnome-session
+206 12 --autostart
+206 12 /usr/share/gdm/greeter/autostart
+207 12 --nofork
+207 12 --print-address
+207 12 4
+207 12 --session
+208 11 --systemd
+208 11 --autostart
+208 11 /usr/share/gdm/greeter/autostart
+210 9 callback]
+212 9 lwio
+213 9 lsass
+214 9 reapsysl
+215 9 --test
+217 15 /usr/sbin/sshd
+217 15 -D
+217 15 [listener]
+217 15 0
+217 15 of
+217 15 10-100
+217 15 startups
+219 12 --config-file=/usr/share/defaults/at-spi2/accessibility.conf
+219 12 --nofork
+219 12 --print-address
+219 12 3
+220 23 :1024
+220 23 -rootless
+220 23 -noreset
+220 23 -accessx
+220 23 -core
+220 23 -auth
+220 23 /run/user/125/.mutter-Xwaylandauth.5ZK012
+220 23 -listen
+220 23 4
+220 23 -listen
+220 23 5
+220 23 -displayfd
+220 23 6
+220 23 -listen
+220 23 7
+223 9 /usr/share/gnome-shell/org.gnome.Shell.Notifications
+224 9 --use-gnome-session
+240 12 --panel
+240 12 disable
+240 12 -r
+240 12 --xim
+242 9 --kill-daemon
+247 9 -l
+249 9 --user
+251 18 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/bin/code-server
+251 18 --start-server
+251 18 --host=127.0.0.1
+251 18 --accept-server-license-terms
+251 18 --enable-remote-auto-shutdown
+251 18 --port=0
+251 18 --telemetry-level
+251 18 all
+251 18 --connection-token-file
+251 18 /nfs/home/STUDENTS/am3554/.vscode-server/.8b617bd08fd9e3fc94d14adb8d358b56e3f72314.token
+252 18 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/out/server-main.js
+252 18 --start-server
+252 18 --host=127.0.0.1
+252 18 --accept-server-license-terms
+252 18 --enable-remote-auto-shutdown
+252 18 --port=0
+252 18 --telemetry-level
+252 18 all
+252 18 --connection-token-file
+252 18 /nfs/home/STUDENTS/am3554/.vscode-server/.8b617bd08fd9e3fc94d14adb8d358b56e3f72314.token
+254 10 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/out/bootstrap-fork
+254 10 --type=fileWatcher
+255 12 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/out/bootstrap-fork
+255 12 --type=ptyHost
+255 12 --logsPath
+255 12 /nfs/home/STUDENTS/am3554/.vscode-server/data/logs/20250218T151140
+256 10 --init-file
+256 10 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+257 9 --user
+259 13 --dns-result-order=ipv4first
+259 13 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/out/bootstrap-fork
+259 13 --type=extensionHost
+259 13 --transformURIs
+259 13 --useHostProxy=false
+260 10 /nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/out/bootstrap-fork
+260 10 --type=fileWatcher
+262 10 gvo0004
+262 10 [priv]
+263 9 --user
+265 9 gvo0004@pts/7
+267 10 mac0881
+267 10 [priv]
+268 9 --user
+270 9 mac0881@pts/1
+272 10 aaa1058
+272 10 [priv]
+273 9 --user
+274 10 cw0710
+274 10 [priv]
+275 9 rec04c.sh
+277 9 aaa1058@pts/2
+279 9 --user
+281 9 cw0710@pts/3
+283 10 med0257
+283 10 [priv]
+284 9 --user
+286 9 med0257@pts/5
+288 9 program2.cpp
+289 10 tl0489
+289 10 [priv]
+290 9 tl0489@pts/8
+292 10 Cr0716
+292 10 [priv]
+293 9 --user
+295 9 cr0716@pts/0
+298 10 erv0026
+298 10 [priv]
+299 9 --user
+301 9 erv0026@pts/4
+303 9 pfserver.c
+305 10 Cr0716
+305 10 [priv]
+306 9 cr0716@notty
+308 10 mac0881
+308 10 [priv]
+309 9 mac0881@pts/11
+311 10 nb0872
+311 10 [priv]
+312 9 --user
+315 9 nb0872@pts/10
+318 10 tl0489
+318 10 [priv]
+319 9 tl0489@pts/9
+324 9 -i
+325 10 --daemonize=no
+325 10 --log-target=journal
+326 10 --daemonize=no
+326 10 --log-target=journal
+327 10 --daemonize=no
+327 10 --log-target=journal
+328 10 --daemonize=no
+328 10 --log-target=journal
+329 10 --daemonize=no
+329 10 --log-target=journal
+330 10 --daemonize=no
+330 10 --log-target=journal
+331 10 --daemonize=no
+331 10 --log-target=journal
+332 10 --daemonize=no
+332 10 --log-target=journal
+333 10 --daemonize=no
+333 10 --log-target=journal
+334 10 --daemonize=no
+334 10 --log-target=journal
+335 9 -ef
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ gawk 'BEGIN {OFS = "\t"}; {print $1, $3, $2, $4, $5,
+> $6, $7, $8}' gawkfile.txt
+UID	PPID	PID	C	STIME	TTY	TIME	CMD
+root	0	1	0	Feb17	?	00:01:46	/sbin/init
+root	0	2	0	Feb17	?	00:00:00	[kthreadd]
+root	2	3	0	Feb17	?	00:00:00	[rcu_gp]
+root	2	4	0	Feb17	?	00:00:00	[rcu_par_gp]
+root	2	5	0	Feb17	?	00:00:00	[slub_flushwq]
+root	2	6	0	Feb17	?	00:00:00	[netns]
+root	2	8	0	Feb17	?	00:00:00	[kworker/0:0H-events_highpri]
+root	2	10	0	Feb17	?	00:00:00	[mm_percpu_wq]
+root	2	11	0	Feb17	?	00:00:00	[rcu_tasks_rude_]
+root	2	12	0	Feb17	?	00:00:00	[rcu_tasks_trace]
+root	2	13	0	Feb17	?	00:00:05	[ksoftirqd/0]
+root	2	14	0	Feb17	?	00:01:25	[rcu_sched]
+root	2	15	0	Feb17	?	00:00:00	[migration/0]
+root	2	16	0	Feb17	?	00:00:00	[idle_inject/0]
+root	2	18	0	Feb17	?	00:00:00	[cpuhp/0]
+root	2	19	0	Feb17	?	00:00:00	[cpuhp/1]
+root	2	20	0	Feb17	?	00:00:00	[idle_inject/1]
+root	2	21	0	Feb17	?	00:00:00	[migration/1]
+root	2	22	0	Feb17	?	00:00:05	[ksoftirqd/1]
+root	2	24	0	Feb17	?	00:00:00	[kworker/1:0H-events_highpri]
+root	2	25	0	Feb17	?	00:00:00	[kdevtmpfs]
+root	2	26	0	Feb17	?	00:00:00	[inet_frag_wq]
+root	2	27	0	Feb17	?	00:00:00	[kauditd]
+root	2	29	0	Feb17	?	00:00:00	[khungtaskd]
+root	2	30	0	Feb17	?	00:00:00	[oom_reaper]
+root	2	31	0	Feb17	?	00:00:00	[writeback]
+root	2	32	0	Feb17	?	00:00:05	[kcompactd0]
+root	2	33	0	Feb17	?	00:00:00	[ksmd]
+root	2	34	0	Feb17	?	00:00:00	[khugepaged]
+root	2	81	0	Feb17	?	00:00:00	[kintegrityd]
+root	2	82	0	Feb17	?	00:00:00	[kblockd]
+root	2	83	0	Feb17	?	00:00:00	[blkcg_punt_bio]
+root	2	84	0	Feb17	?	00:00:00	[tpm_dev_wq]
+root	2	85	0	Feb17	?	00:00:00	[ata_sff]
+root	2	86	0	Feb17	?	00:00:00	[md]
+root	2	87	0	Feb17	?	00:00:00	[edac-poller]
+root	2	88	0	Feb17	?	00:00:00	[devfreq_wq]
+root	2	89	0	Feb17	?	00:00:00	[watchdogd]
+root	2	91	0	Feb17	?	00:00:07	[kworker/0:1H-kblockd]
+root	2	93	0	Feb17	?	00:00:01	[kswapd0]
+root	2	94	0	Feb17	?	00:00:00	[ecryptfs-kthrea]
+root	2	96	0	Feb17	?	00:00:00	[kthrotld]
+root	2	97	0	Feb17	?	00:00:00	[irq/24-pciehp]
+root	2	98	0	Feb17	?	00:00:00	[irq/25-pciehp]
+root	2	99	0	Feb17	?	00:00:00	[irq/26-pciehp]
+root	2	100	0	Feb17	?	00:00:00	[irq/27-pciehp]
+root	2	101	0	Feb17	?	00:00:00	[irq/28-pciehp]
+root	2	102	0	Feb17	?	00:00:00	[irq/29-pciehp]
+root	2	103	0	Feb17	?	00:00:00	[irq/30-pciehp]
+root	2	104	0	Feb17	?	00:00:00	[irq/31-pciehp]
+root	2	105	0	Feb17	?	00:00:00	[irq/32-pciehp]
+root	2	106	0	Feb17	?	00:00:00	[irq/33-pciehp]
+root	2	107	0	Feb17	?	00:00:00	[irq/34-pciehp]
+root	2	108	0	Feb17	?	00:00:00	[irq/35-pciehp]
+root	2	109	0	Feb17	?	00:00:00	[irq/36-pciehp]
+root	2	110	0	Feb17	?	00:00:00	[irq/37-pciehp]
+root	2	111	0	Feb17	?	00:00:00	[irq/38-pciehp]
+root	2	112	0	Feb17	?	00:00:00	[irq/39-pciehp]
+root	2	113	0	Feb17	?	00:00:00	[irq/40-pciehp]
+root	2	114	0	Feb17	?	00:00:00	[irq/41-pciehp]
+root	2	115	0	Feb17	?	00:00:00	[irq/42-pciehp]
+root	2	116	0	Feb17	?	00:00:00	[irq/43-pciehp]
+root	2	117	0	Feb17	?	00:00:00	[irq/44-pciehp]
+root	2	118	0	Feb17	?	00:00:00	[irq/45-pciehp]
+root	2	119	0	Feb17	?	00:00:00	[irq/46-pciehp]
+root	2	120	0	Feb17	?	00:00:00	[irq/47-pciehp]
+root	2	121	0	Feb17	?	00:00:00	[irq/48-pciehp]
+root	2	122	0	Feb17	?	00:00:00	[irq/49-pciehp]
+root	2	123	0	Feb17	?	00:00:00	[irq/50-pciehp]
+root	2	124	0	Feb17	?	00:00:00	[irq/51-pciehp]
+root	2	125	0	Feb17	?	00:00:00	[irq/52-pciehp]
+root	2	126	0	Feb17	?	00:00:00	[irq/53-pciehp]
+root	2	127	0	Feb17	?	00:00:00	[irq/54-pciehp]
+root	2	128	0	Feb17	?	00:00:00	[irq/55-pciehp]
+root	2	129	0	Feb17	?	00:00:00	[acpi_thermal_pm]
+root	2	132	0	Feb17	?	00:00:00	[scsi_eh_0]
+root	2	133	0	Feb17	?	00:00:00	[scsi_tmf_0]
+root	2	134	0	Feb17	?	00:00:00	[scsi_eh_1]
+root	2	135	0	Feb17	?	00:00:00	[scsi_tmf_1]
+root	2	137	0	Feb17	?	00:00:00	[vfio-irqfd-clea]
+root	2	138	0	Feb17	?	00:00:00	[mld]
+root	2	139	0	Feb17	?	00:00:07	[kworker/1:1H-kblockd]
+root	2	140	0	Feb17	?	00:00:00	[ipv6_addrconf]
+root	2	150	0	Feb17	?	00:00:00	[kstrp]
+root	2	153	0	Feb17	?	00:00:00	[zswap-shrink]
+root	2	159	0	Feb17	?	00:00:00	[charger_manager]
+root	2	203	0	Feb17	?	00:00:00	[mpt_poll_0]
+root	2	204	0	Feb17	?	00:00:00	[mpt/0]
+root	2	205	0	Feb17	?	00:00:00	[scsi_eh_2]
+root	2	206	0	Feb17	?	00:00:00	[scsi_tmf_2]
+root	2	207	0	Feb17	?	00:00:00	[scsi_eh_3]
+root	2	208	0	Feb17	?	00:00:00	[scsi_tmf_3]
+root	2	209	0	Feb17	?	00:00:00	[scsi_eh_4]
+root	2	210	0	Feb17	?	00:00:00	[scsi_tmf_4]
+root	2	211	0	Feb17	?	00:00:00	[scsi_eh_5]
+root	2	212	0	Feb17	?	00:00:00	[scsi_tmf_5]
+root	2	213	0	Feb17	?	00:00:00	[scsi_eh_6]
+root	2	214	0	Feb17	?	00:00:00	[scsi_tmf_6]
+root	2	215	0	Feb17	?	00:00:00	[scsi_eh_7]
+root	2	216	0	Feb17	?	00:00:00	[scsi_tmf_7]
+root	2	217	0	Feb17	?	00:00:00	[scsi_eh_8]
+root	2	218	0	Feb17	?	00:00:00	[scsi_tmf_8]
+root	2	219	0	Feb17	?	00:00:00	[scsi_eh_9]
+root	2	220	0	Feb17	?	00:00:00	[scsi_tmf_9]
+root	2	221	0	Feb17	?	00:00:00	[scsi_eh_10]
+root	2	222	0	Feb17	?	00:00:00	[scsi_tmf_10]
+root	2	223	0	Feb17	?	00:00:00	[scsi_eh_11]
+root	2	224	0	Feb17	?	00:00:00	[scsi_tmf_11]
+root	2	225	0	Feb17	?	00:00:00	[scsi_eh_12]
+root	2	226	0	Feb17	?	00:00:00	[scsi_tmf_12]
+root	2	227	0	Feb17	?	00:00:00	[scsi_eh_13]
+root	2	228	0	Feb17	?	00:00:00	[scsi_tmf_13]
+root	2	229	0	Feb17	?	00:00:00	[scsi_eh_14]
+root	2	230	0	Feb17	?	00:00:00	[scsi_tmf_14]
+root	2	231	0	Feb17	?	00:00:00	[scsi_eh_15]
+root	2	232	0	Feb17	?	00:00:00	[scsi_tmf_15]
+root	2	233	0	Feb17	?	00:00:00	[scsi_eh_16]
+root	2	234	0	Feb17	?	00:00:00	[scsi_tmf_16]
+root	2	235	0	Feb17	?	00:00:00	[scsi_eh_17]
+root	2	236	0	Feb17	?	00:00:00	[scsi_tmf_17]
+root	2	237	0	Feb17	?	00:00:00	[scsi_eh_18]
+root	2	238	0	Feb17	?	00:00:00	[scsi_tmf_18]
+root	2	239	0	Feb17	?	00:00:00	[scsi_eh_19]
+root	2	240	0	Feb17	?	00:00:00	[scsi_tmf_19]
+root	2	241	0	Feb17	?	00:00:00	[scsi_eh_20]
+root	2	242	0	Feb17	?	00:00:00	[scsi_tmf_20]
+root	2	243	0	Feb17	?	00:00:00	[scsi_eh_21]
+root	2	244	0	Feb17	?	00:00:00	[scsi_tmf_21]
+root	2	245	0	Feb17	?	00:00:00	[scsi_eh_22]
+root	2	246	0	Feb17	?	00:00:00	[scsi_tmf_22]
+root	2	247	0	Feb17	?	00:00:00	[scsi_eh_23]
+root	2	248	0	Feb17	?	00:00:00	[scsi_tmf_23]
+root	2	249	0	Feb17	?	00:00:00	[scsi_eh_24]
+root	2	250	0	Feb17	?	00:00:00	[scsi_tmf_24]
+root	2	251	0	Feb17	?	00:00:00	[scsi_eh_25]
+root	2	252	0	Feb17	?	00:00:00	[scsi_tmf_25]
+root	2	253	0	Feb17	?	00:00:00	[scsi_eh_26]
+root	2	254	0	Feb17	?	00:00:00	[scsi_tmf_26]
+root	2	255	0	Feb17	?	00:00:00	[scsi_eh_27]
+root	2	256	0	Feb17	?	00:00:00	[scsi_tmf_27]
+root	2	257	0	Feb17	?	00:00:00	[scsi_eh_28]
+root	2	258	0	Feb17	?	00:00:00	[scsi_tmf_28]
+root	2	259	0	Feb17	?	00:00:00	[scsi_eh_29]
+root	2	260	0	Feb17	?	00:00:00	[scsi_tmf_29]
+root	2	261	0	Feb17	?	00:00:00	[scsi_eh_30]
+root	2	262	0	Feb17	?	00:00:00	[scsi_tmf_30]
+root	2	263	0	Feb17	?	00:00:00	[scsi_eh_31]
+root	2	264	0	Feb17	?	00:00:00	[scsi_tmf_31]
+root	2	293	0	Feb17	?	00:00:00	[scsi_eh_32]
+root	2	294	0	Feb17	?	00:00:00	[scsi_tmf_32]
+root	2	316	0	Feb17	?	00:00:04	[jbd2/sda5-8]
+root	2	317	0	Feb17	?	00:00:00	[ext4-rsv-conver]
+root	1	358	2	Feb17	?	00:55:50	/lib/systemd/systemd-journald
+root	2	379	0	Feb17	?	00:00:00	[rpciod]
+root	2	380	0	Feb17	?	00:00:00	[xprtiod]
+root	1	393	0	Feb17	?	00:00:00	/lib/systemd/systemd-udevd
+root	2	437	0	Feb17	?	00:00:00	[ttm_swap]
+root	2	438	0	Feb17	?	00:00:00	[irq/16-vmwgfx]
+root	2	439	0	Feb17	?	00:00:00	[card0-crtc0]
+root	2	440	0	Feb17	?	00:00:00	[card0-crtc1]
+root	2	441	0	Feb17	?	00:00:00	[card0-crtc2]
+root	2	442	0	Feb17	?	00:00:00	[card0-crtc3]
+root	2	443	0	Feb17	?	00:00:00	[card0-crtc4]
+root	2	444	0	Feb17	?	00:00:00	[card0-crtc5]
+root	2	445	0	Feb17	?	00:00:00	[card0-crtc6]
+root	2	446	0	Feb17	?	00:00:00	[card0-crtc7]
+root	2	472	0	Feb17	?	00:00:00	[cryptd]
+root	1	510	0	Feb17	?	00:00:00	/usr/sbin/rpc.gssd
+root	2	511	0	Feb17	?	00:00:00	[nfit]
+_rpc	1	514	0	Feb17	?	00:00:00	/sbin/rpcbind
+systemd+	1	517	0	Feb17	?	00:00:00	/lib/systemd/systemd-resolved
+systemd+	1	518	0	Feb17	?	00:00:00	/lib/systemd/systemd-timesyncd
+root	1	558	0	Feb17	?	00:01:03	/usr/lib/accountsservice/accounts-daemon
+root	1	559	0	Feb17	?	00:00:00	/usr/sbin/acpid
+avahi	1	562	0	Feb17	?	00:00:25	avahi-daemon:
+root	1	565	0	Feb17	?	00:00:00	/usr/sbin/cron
+message+	1	569	0	Feb17	?	00:00:54	/usr/bin/dbus-daemon
+root	1	570	0	Feb17	?	00:00:13	/usr/sbin/NetworkManager
+root	1	578	0	Feb17	?	00:00:04	/usr/sbin/irqbalance
+root	1	582	0	Feb17	?	00:00:00	/usr/bin/python3
+root	1	584	19	Feb17	?	06:36:47	/usr/lib/policykit-1/polkitd
+syslog	1	588	0	Feb17	?	00:12:03	/usr/sbin/rsyslogd
+root	1	590	0	Feb17	?	00:00:00	/usr/libexec/switcheroo-control
+root	1	598	0	Feb17	?	00:00:01	/lib/systemd/systemd-logind
+root	1	602	0	Feb17	?	00:00:00	/usr/lib/udisks2/udisksd
+root	1	603	0	Feb17	?	00:00:00	/usr/bin/VGAuthService
+root	1	612	0	Feb17	?	00:01:22	/usr/bin/vmtoolsd
+root	1	615	0	Feb17	?	00:00:00	/sbin/wpa_supplicant
+avahi	562	629	0	Feb17	?	00:00:00	avahi-daemon:
+root	1	649	0	Feb17	?	00:00:00	/usr/sbin/ModemManager
+root	1	668	0	Feb17	?	00:00:00	/usr/bin/python3
+root	1	670	0	Feb17	?	00:00:00	/opt/pbis/sbin/lwsmd
+root	670	684	0	Feb17	?	00:00:26	lw-container
+root	1	721	0	Feb17	?	00:00:00	/usr/sbin/gdm3
+root	721	728	0	Feb17	?	00:00:00	gdm-session-worker
+root	670	732	0	Feb17	?	00:00:00	lw-container
+whoopsie	1	762	0	Feb17	?	00:00:00	/usr/bin/whoopsie
+root	670	781	0	Feb17	?	00:00:01	lw-container
+gdm	1	821	0	Feb17	?	00:00:00	/lib/systemd/systemd
+gdm	821	825	0	Feb17	?	00:00:00	(sd-pam)
+root	2	826	0	Feb17	?	00:00:00	[nfsiod]
+gdm	821	833	0	Feb17	?	00:00:00	/usr/bin/pulseaudio
+gdm	728	834	0	Feb17	tty1	00:00:00	/usr/lib/gdm3/gdm-wayland-session
+gdm	821	836	0	Feb17	?	00:00:00	/usr/bin/dbus-daemon
+gdm	834	838	0	Feb17	tty1	00:00:00	dbus-run-session
+gdm	838	840	0	Feb17	tty1	00:00:00	dbus-daemon
+gdm	838	841	0	Feb17	tty1	00:00:00	/usr/libexec/gnome-session-binary
+rtkit	1	843	0	Feb17	?	00:00:08	/usr/libexec/rtkit-daemon
+root	2	845	0	Feb17	?	00:00:00	[NFSv4
+gdm	841	870	0	Feb17	tty1	00:01:15	/usr/bin/gnome-shell
+root	670	871	0	Feb17	?	00:00:00	lw-container
+root	670	889	82	Feb17	?	1-04:17:38	lw-container
+root	670	911	0	Feb17	?	00:00:00	lw-container
+kernoops	1	942	0	Feb17	?	00:00:02	/usr/sbin/kerneloops
+kernoops	1	944	0	Feb17	?	00:00:02	/usr/sbin/kerneloops
+root	1	945	0	Feb17	?	00:00:00	sshd:
+gdm	1	963	0	Feb17	tty1	00:00:00	/usr/libexec/at-spi-bus-launcher
+gdm	963	968	0	Feb17	tty1	00:00:00	/usr/bin/dbus-daemon
+gdm	870	971	0	Feb17	tty1	00:00:00	/usr/bin/Xwayland
+gdm	1	988	0	Feb17	tty1	00:00:00	/usr/libexec/xdg-permission-store
+root	1	992	0	Feb17	?	00:00:00	/usr/lib/upower/upowerd
+gdm	1	1007	0	Feb17	tty1	00:00:00	/usr/bin/gjs
+gdm	1	1009	0	Feb17	tty1	00:00:00	/usr/libexec/at-spi2-registryd
+gdm	841	1012	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-sharing
+gdm	841	1017	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-wacom
+gdm	841	1019	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-color
+gdm	841	1022	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-keyboard
+gdm	841	1024	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-print-notifications
+gdm	841	1027	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-rfkill
+gdm	841	1028	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-smartcard
+gdm	841	1030	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-datetime
+gdm	841	1035	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-media-keys
+gdm	841	1043	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-screensaver-proxy
+gdm	841	1046	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-sound
+gdm	841	1052	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-a11y-settings
+gdm	841	1053	0	Feb17	tty1	00:00:03	/usr/libexec/gsd-housekeeping
+gdm	841	1058	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-power
+gdm	1	1084	0	Feb17	tty1	00:00:00	/usr/libexec/gsd-printer
+gdm	870	1131	0	Feb17	tty1	00:00:00	ibus-daemon
+gdm	1131	1138	0	Feb17	tty1	00:00:00	/usr/libexec/ibus-memconf
+gdm	1	1142	0	Feb17	tty1	00:00:00	/usr/libexec/ibus-x11
+gdm	1	1146	0	Feb17	tty1	00:00:00	/usr/libexec/ibus-portal
+colord	1	1152	0	Feb17	?	00:00:00	/usr/libexec/colord
+gdm	1131	1159	0	Feb17	tty1	00:00:00	/usr/libexec/ibus-engine-simple
+root	2	30803	0	Feb17	?	00:00:04	[kworker/u257:2-xprtiod]
+root	1	35373	0	Feb17	?	00:00:00	/usr/sbin/cupsd
+root	1	35375	0	Feb17	?	00:00:02	/usr/sbin/cups-browsed
+am3554	1	52258	0	15:10	?	00:00:06	/lib/systemd/systemd
+am3554	52258	52270	0	15:11	?	00:00:00	(sd-pam)
+am3554	1	52361	0	15:11	?	00:00:00	sh
+am3554	52361	52370	0	15:11	?	00:00:26	/nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/node
+root	2	52391	0	15:11	?	00:00:07	[kworker/u257:1-xprtiod]
+am3554	52370	52489	0	15:11	?	00:00:10	/nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/node
+am3554	52370	52526	0	15:11	?	00:00:20	/nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/node
+am3554	52526	52624	0	15:11	pts/25	00:00:00	/bin/bash
+tl0489	1	55057	0	16:06	?	00:00:06	/lib/systemd/systemd
+tl0489	55057	55076	0	16:06	?	00:00:00	(sd-pam)
+am3554	52370	57243	2	17:01	?	00:04:33	/nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/node
+am3554	52370	57255	0	17:01	?	00:00:07	/nfs/home/STUDENTS/am3554/.vscode-server/bin/8b617bd08fd9e3fc94d14adb8d358b56e3f72314/node
+root	2	57560	0	17:07	?	00:00:02	[kworker/u256:2-ext4-rsv-conversion]
+root	945	62018	0	17:52	?	00:00:05	sshd:
+gvo0004	1	62063	0	17:53	?	00:00:06	/lib/systemd/systemd
+gvo0004	62063	62073	0	17:54	?	00:00:00	(sd-pam)
+gvo0004	62018	62095	0	17:54	?	00:00:03	sshd:
+gvo0004	62095	62098	0	17:54	pts/7	00:00:00	-bash
+root	945	63806	0	18:15	?	00:00:05	sshd:
+mac0881	1	64017	0	18:16	?	00:00:06	/lib/systemd/systemd
+mac0881	64017	64072	0	18:17	?	00:00:00	(sd-pam)
+mac0881	63806	64094	0	18:17	?	00:00:03	sshd:
+mac0881	64094	64197	0	18:17	pts/1	00:00:00	-bash
+root	945	65297	0	18:26	?	00:00:05	sshd:
+aaa1058	1	65545	0	18:27	?	00:00:05	/lib/systemd/systemd
+root	945	65549	0	18:27	?	00:00:05	sshd:
+gvo0004	62098	65574	0	18:27	pts/7	00:00:00	vi
+aaa1058	65545	65611	0	18:27	?	00:00:00	(sd-pam)
+aaa1058	65297	65633	0	18:27	?	00:00:04	sshd:
+aaa1058	65633	65672	0	18:28	pts/2	00:00:00	-bash
+cw0710	1	65727	0	18:28	?	00:00:05	/lib/systemd/systemd
+cw0710	65727	65790	0	18:29	?	00:00:00	(sd-pam)
+cw0710	65549	65812	0	18:29	?	00:00:03	sshd:
+cw0710	65812	65886	0	18:29	pts/3	00:00:00	-bash
+root	945	66533	0	18:33	?	00:00:05	sshd:
+med0257	1	66646	0	18:34	?	00:00:05	/lib/systemd/systemd
+med0257	66646	66670	0	18:34	?	00:00:00	(sd-pam)
+med0257	66533	66692	0	18:34	?	00:00:03	sshd:
+med0257	66692	66708	0	18:35	pts/5	00:00:00	-bash
+aaa1058	65672	67588	0	18:42	pts/2	00:00:00	nano
+root	945	70078	0	18:51	?	00:00:05	sshd:
+tl0489	70078	70413	0	18:52	?	00:00:03	sshd:
+tl0489	70413	70532	0	18:52	pts/8	00:00:00	-bash
+root	945	70617	0	18:53	?	00:00:05	sshd:
+cr0716	1	70635	0	18:54	?	00:00:06	/lib/systemd/systemd
+cr0716	70635	70640	0	18:55	?	00:00:00	(sd-pam)
+cr0716	70617	70662	0	18:55	?	00:00:03	sshd:
+cr0716	70662	70665	0	18:55	pts/0	00:00:00	-bash
+root	2	71189	0	19:13	?	00:00:01	[kworker/0:2-cgroup_destroy]
+root	945	71254	0	19:17	?	00:00:05	sshd:
+erv0026	1	71271	0	19:18	?	00:00:05	/lib/systemd/systemd
+erv0026	71271	71278	0	19:19	?	00:00:00	(sd-pam)
+erv0026	71254	71322	0	19:19	?	00:00:03	sshd:
+erv0026	71322	71325	0	19:19	pts/4	00:00:00	-bash
+erv0026	71325	71416	0	19:25	pts/4	00:00:00	nano
+root	2	71507	0	19:29	?	00:00:00	[kworker/u256:0-rpciod]
+root	945	71670	0	19:33	?	00:00:05	sshd:
+cr0716	71670	71702	0	19:33	?	00:00:03	sshd:
+cr0716	71702	71707	0	19:34	?	00:00:01	/usr/lib/openssh/sftp-server
+root	945	71803	0	19:39	?	00:00:05	sshd:
+mac0881	71803	71844	0	19:40	?	00:00:03	sshd:
+mac0881	71844	71852	0	19:40	pts/11	00:00:00	-bash
+root	945	72129	0	19:49	?	00:00:05	sshd:
+nb0872	1	72150	0	19:50	?	00:00:05	/lib/systemd/systemd
+root	2	72151	0	19:50	?	00:00:00	[kworker/1:1-mm_percpu_wq]
+nb0872	72150	72157	0	19:51	?	00:00:00	(sd-pam)
+nb0872	72129	72179	0	19:51	?	00:00:03	sshd:
+nb0872	72179	72184	0	19:51	pts/10	00:00:00	-bash
+root	2	72189	0	19:51	?	00:00:00	[kworker/0:1-events]
+root	945	72194	0	19:52	?	00:00:05	sshd:
+tl0489	72194	72238	0	19:52	?	00:00:03	sshd:
+tl0489	72238	72245	0	19:53	pts/9	00:00:00	-bash
+root	2	72367	0	20:00	?	00:00:00	[kworker/u256:3-nfsiod]
+root	2	72522	0	20:04	?	00:00:00	[kworker/1:2-events]
+cw0710	65886	72563	0	20:07	pts/3	00:00:00	script
+cw0710	72563	72564	0	20:07	pts/6	00:00:00	bash
+erv0026	71271	72614	0	20:10	?	00:00:00	/usr/bin/pulseaudio
+cr0716	70635	72615	0	20:10	?	00:00:00	/usr/bin/pulseaudio
+nb0872	72150	72616	0	20:10	?	00:00:00	/usr/bin/pulseaudio
+tl0489	55057	72624	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+am3554	52258	72626	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+med0257	66646	72627	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+cw0710	65727	72628	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+gvo0004	62063	72629	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+aaa1058	65545	72632	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+mac0881	64017	72634	0	20:11	?	00:00:00	/usr/bin/pulseaudio
+cw0710	72564	72636	0	20:11	pts/6	00:00:00	ps
+]0;cw0710@cell01-cse: ~cw0710@cell01-cse:~$ exit
+exit
+
+Script done on 2025-02-18 20:13:26-06:00 [COMMAND_EXIT_CODE="0"]
