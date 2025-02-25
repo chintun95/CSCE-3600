@@ -1,0 +1,4 @@
+Hello, world!
+This is a sample file.
+It contains some text for practicing sed.
+Let's make some modifications.
