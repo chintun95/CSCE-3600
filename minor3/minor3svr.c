@@ -1,4 +1,4 @@
-Chin Lun Wong
+// Chin Lun Wong
 
 
 #include <stdio.h>
