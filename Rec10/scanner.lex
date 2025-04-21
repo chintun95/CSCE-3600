@@ -50,8 +50,7 @@ other  .
 "=" return ASGNSYM;			
 "-" return MINUSSYM;
 "/" return DIVSYM;
-"%" return MODSYM;
-/* end names and delimiters */
+"%" return MODSYM; /* end names and delimiters */
 {ident}     {
                  struct symtab *sp = symlook(yytext);
                  yylval.symp = sp;
