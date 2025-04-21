@@ -16,6 +16,8 @@ int flag = 0;
 #define ASGNSYM 275 
 #define MINUSSYM 276 
 #define NUMBER 277
+#define DIVSYM 278
+#define MODSYM 279
 
 
 typedef struct {
@@ -46,7 +48,10 @@ other  .
 "+" return PLUSSYM;			
 "*" return MULTSYM;			
 "=" return ASGNSYM;			
-"-" return MINUSSYM;			/* end names and delimiters */
+"-" return MINUSSYM;
+"/" return DIVSYM;
+"%" return MODSYM;
+/* end names and delimiters */
 {ident}     {
                  struct symtab *sp = symlook(yytext);
                  yylval.symp = sp;
@@ -133,6 +138,10 @@ main()				/* Not needed with a parser */
       printf("%s\t\tNUMBER ", yytext);
     else if (ch == NAME)
       printf("%s\t\tNAME\t\t", yytext);
+    else if (ch == DIVSYM)
+      printf("%s\t\tDIV_OP ", yytext);
+    else if (ch == MODSYM)
+      printf("%s\t\tMOD_OP ", yytext);
     else
      printf("%c ",ch);
      printf("\n");			/* end check token read */
